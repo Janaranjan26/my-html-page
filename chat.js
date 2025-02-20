@@ -647,7 +647,7 @@ function addChatBoxModal() {
   <div id="chatModal" class="chat-modal-container">
       <div class="modal-content">
         <div class="modal-header">
-          Sovos Acepta
+          SOS Internation Chat
           <span class="header-right">
             <!--span class="settingGear">&#9965;</span-->
             <span class="chatCloseX">&times;</span>
@@ -679,17 +679,17 @@ function addPreChatBoxModal() {
        <div class="mont" style="background-color:#1689ce;padding:15px 0;color:white;font-weight:bold;text-align:center;">Sovos Acepta</div>
           <div class="row" style="display:flex;justify-content:space-around;margin-top:40px">
       <div class="form-group" class="col-sm-4">
-        <label for="company">Company / Compañía: </label>
+        <label for="company">Company: </label>
         <input type="text" class="form-input" id="companyName" name="companyName" required>
          <div id="company-error" class="error-message"></div>
         </div>
        <div class="form-group" class="col-sm-4">
-        <label for="clientsFirstName">First Name / Nombre:  <span class="required">*</span></label>
+        <label for="clientsFirstName">First Name:  <span class="required">*</span></label>
         <input type="text" class="form-input" id="clientsFirstName" name="clientsFirstName" required>
          <div id="clientsFirstName-error" class="error-message"></div>
         </div>
         <div class="form-group" class="col-sm-4">
-        <label for="clientsLastName">Last Name / Apellido:  <span class="required">*</span></label>
+        <label for="clientsLastName">Last Name:  <span class="required">*</span></label>
         <input type="text" class="form-input" id="clientsLastName" name="clientsLastName" required>
         <div id="clientsLastName-error" class="error-message"></div>
         </div>
@@ -702,13 +702,13 @@ function addPreChatBoxModal() {
             <div id="email-error" class="error-message"></div>
         </div>
         <div class="form-group">
-          <label for="phoneNumber">Phone Number / Teléfono:  </label>
+          <label for="phoneNumber">Phone Number:  </label>
           <input  type="tel"  class="form-input"  id="phoneNumber" name="phoneNumber"  required
           >
           <div id="phoneNumber-error" class="error-message"></div>
         </div>
           <div class="form-group">
-        <label class="labeldata" for="issue">How can we help you today? / ¿Cómo podemos ayudarte hoy?: <span class="required">*</span></label>
+        <label class="labeldata" for="issue">How can we help you today?: <span class="required">*</span></label>
         <textarea id="issue" class="form-input" name="issue" rows="2" required></textarea>
          <div id="issue-error" class="error-message"></div>
         </div> 

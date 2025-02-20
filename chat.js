@@ -676,7 +676,8 @@ function addPreChatBoxModal() {
           </div>
         
       <form id="supportForm" class="chat-form" onsubmit="return validateForm()">
-       <div class="mont" style="background-color:#1689ce;padding:15px 0;color:white;font-weight:bold;text-align:center;">SOS Internation Chat<div class="form-group" class="col-sm-4">
+       <div class="mont" style="background-color:#1689ce;padding:15px 0;color:white;font-weight:bold;text-align:center;">SOS Internation Chat
+       <div class="form-group" class="col-sm-4">
         <label for="company">Company: </label>
         <input type="text" class="form-input" id="companyName" name="companyName" required>
          <div id="company-error" class="error-message"></div>

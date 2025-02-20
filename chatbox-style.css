@@ -1,0 +1,538 @@
+.chat-form {
+  /* max-width: 400px; */
+  width:100%;
+  margin: 0 auto;
+ height:100vh;
+ 
+  /* height: 500px; */
+  /* max-height: 80vh; */
+  overflow-y: auto;
+  background-color: #eeeeee;
+ 
+}
+.form-group {
+  margin-bottom: 5px;
+}
+.labeldata{
+  display: block;
+  margin-bottom: 5px;
+  font-family:"Montserrat";
+  width:200px;
+
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-family:"Montserrat"
+}
+/* #preSubmit {
+  padding: 10px 15px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  margin-top: 5px;
+  border: 1px solid green;
+} */
+.form-input {
+  width: 130%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+   background-color: white; 
+   font-size: 16px;
+ 
+}
+.form-input:focus{
+  width: 130%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: white; 
+  font-size: 16px;
+
+}
+
+.round-button {
+  position: absolute; /* Position the button relative to the body */
+  bottom: 20px; /* Distance from the bottom */
+  right: 40px; /* Distance from the right */
+  display: inline-block;
+  /* background:#3F5773; */
+  background: #3877A7;
+  /* background-color: #007bff;  */
+  /* Button background color */
+  color: #ffffff; /* Button text color */
+  font-size: 16px; /* Button text size */
+  width: 60px; /* Button width */
+  height: 60px; /* Button height */
+  border-radius: 50%; /* Make the button round */
+  text-align: center;
+  line-height: 60px; /* Center text vertically */
+  text-decoration: none; /* Remove underline from the link */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow to the button */
+}
+
+.round-button:hover {
+  /* background-color: #0056b3; */
+  outline: 1px solid #3877A7;
+  /* Change background color on hover */
+}
+
+/* Modal */
+.chat-modal-container {
+  display: none; /* Hidden by default */
+  position: absolute; /* Position it absolutely */
+  z-index: 1; /* Sit on top */
+  /* right: 20px; /* Adjust according to button width */
+  /* bottom: 20px; Adjust according to button height */ 
+  width: 100%; /* Set width */
+  height:100%;
+  max-height: 450px;
+  /* max-width: 415px; Max width of the modal */
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  padding: 0px; /* Padding inside the modal */
+  border: 2px solid #ddd;
+  /* font-family: Helvetica, sans-serif; */
+  font-family: sans-serif;
+  
+}
+
+.welcome-screen {
+  display: none; /* Hidden by default */
+  position: absolute; /* Position it absolutely */
+  z-index: 1; /* Sit on top */
+  /* Adjust according to button height */
+  width: 80%; /* Set width */
+  max-width: 415px; /* Max width of the modal */
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  padding: 0px; /* Padding inside the modal */
+  border: 2px solid #ddd;
+  font-family: sans-serif;
+  z-index: 1001;
+  height:100%;
+}
+
+/* .modal-sovos{
+  font-size: 15px;
+  position:a
+  width:40px;
+  height:40px;
+  
+ } */
+  .mont{
+    font-family: "Montserrat";
+  }
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px; */
+  border-bottom: 2px solid #ddd;
+  background:#1689ce;
+  padding:10px 0;
+  position:relative;
+  
+  font-weight: bold;
+  /* background: #eee; */
+  /* background: #3F5773; */
+  /* background: #2ca7d0;----- */
+  
+ 
+  /* color: #666; */
+  color: #ffffff;
+  font-size: 1.2em;
+
+  font-weight: bold;
+  unicode-bidi: isolate;
+  letter-spacing: 1px;
+  border: none;
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  border-radius: 5px;
+  
+}
+
+/* .modal-for-welcome {
+  background: #bed5eb;
+  margin: 5px;
+} */
+
+/*setting button */
+.header-right {
+  /* color: #aaa; */
+  float: right;
+  /* font-size: 20px;
+   font-weight: bold;
+   cursor: pointer; */
+}
+
+/* Close Button */
+.chatCloseX {
+  color: white;
+   margin-right: 0;
+   float: right; 
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right:20px;
+ 
+}
+
+/*setting button */
+.settingGear {
+  color: #aaa;
+  /* margin-right: 0; */
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/*Chat Box*/
+
+div#chatBox {
+  flex: 1;
+  overflow-y: auto;
+ 
+  width: 100%;
+  height:81vh;
+}
+#chatBox::-webkit-scrollbar {
+  width: 10px;
+}
+#chatBox::-webkit-scrollbar-track {
+  background: #ddd;
+}
+#chatBox::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+}
+/* ----------------- */
+
+.circle {
+  width: 60px;
+  height: 60px;
+  background-color: #285f91;
+  border: 3px solid white;
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle-text {
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-pre {
+  width: 60px;
+  height: 60px;
+  background-color: #285f91;
+  border: 3px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.circle-text-pre {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+div#welcomeBox {
+  flex: 1;
+  overflow-y: auto;
+  padding: 5px;
+  width: 400px;
+  height: 500px;
+}
+#welcomeBox::-webkit-scrollbar {
+  width: 10px;
+}
+#welcomeBox::-webkit-scrollbar-track {
+  background: #ddd;
+}
+#welcomeBox::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+}
+
+.welcome-header-text h3 {
+  line-height: 0.7em;
+  font-size:23px;
+}
+
+.welcome-gradient {
+  padding: 1em;
+  background: linear-gradient(to bottom, #bed5eb, white);
+}
+.button-container {
+  text-align: center;
+  background-color: white;
+  padding: 2em 1em;
+  margin: 0 2em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.sendBtn {
+  text-align: center;
+  margin-bottom: 1em;
+}
+.chat-now-button,
+.start-chat-btn {
+  /* background: #5091cd; */
+  background:#33b5f3;
+  padding: 15px 60px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 8px;
+}
+
+.required {
+  color: red;
+  font-weight: bold;
+}
+
+.error-message {
+  font-size: 14x;
+  margin-bottom: 1em;
+  color: red;
+}
+
+/* ---------------- */
+.messagebox {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+.messagebox:last-of-type {
+  margin: 0;
+}
+
+.message-bubble {
+  max-width: 450px;
+  padding: 15px;
+  border-radius: 15px;
+  background:#999ea3;
+  color:white;
+  /* background: #ececec; */
+  /* background: rgb(237, 237, 237); */
+}
+
+.message-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  text-wrap: warp;
+}
+.custom-icon {
+  font-size: 25px;
+}
+.message-info-name {
+  margin-right: 10px;
+  font-weight: bold;
+  /* font-style:oblique; */
+  /* color:rgb(34, 34, 34); */
+  /* color: #072448; */
+  color:white;
+  /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+  font-family: "Montserrat";
+  /* text-wrap: warp; */
+}
+.message-info-time {
+  font-size: 0.85em;
+}
+
+.msg-recieve .message-bubble {
+  border-bottom-left-radius: 0;
+}
+
+/* right */
+.msg-send {
+  flex-direction: row-reverse;
+}
+
+.msg-send .message-bubble {
+  /* background: #579ffb; */
+  background:#1689ce;
+  /* background: rgb(170, 223, 180); */
+  color: #fff;
+  border-bottom-right-radius: 0;
+  /* color: rgb(34, 34, 34); */
+}
+.helpButton {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: 1px solid #cecece;
+  cursor: pointer;
+}
+.helpButton:hover {
+  background-color: #33b5f3;
+  color: white;
+}
+.helpButton:active {
+  background-color: #33b5f3;
+  color: white;
+}
+
+.message {
+  /* word-break: break-all; */
+  /* font-family:Arial, Helvetica, sans-serif; */
+  font-family: "Montserrat";
+  /* color:rgb(34, 34, 34); */
+  /* color: #072448; */
+
+  /* font-style:italic */
+}
+
+/* left */
+/* .msg-recieve {
+   border-bottom-left-radius: 0;
+   background: #ececec;
+ } */
+.err {
+  text-align: center;
+  float: right;
+  color: #f77;
+}
+
+.eventbox {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-bottom: 10px;
+}
+
+.event {
+  background-color: rgb(179, 177, 177);
+  color: rgb(246, 243, 243);
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  /* white-space: nowrap; */
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  text-wrap: warp;
+}
+
+.ontyping .message-bubble {
+  width: 3.5rem;
+}
+
+.message-input {
+  flex: 1;
+  background: #ddd;
+  resize: none; /* Prevent manual resizing */
+}
+
+.message-inputarea {
+  display: flex;
+  padding: 10px;
+  border-top: 2px solid #ddd;
+  background: #eee;
+}
+.message-inputarea * {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+.message-send-btn {
+  margin-left: 10px;
+  /* background: rgb(0, 196, 65); */
+  background: #015fff;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.23s;
+}
+.message-send-btn:hover {
+  /* background: rgb(0, 180, 50); */
+  background: #015fff;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 0.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+  margin-left: 1.5rem;
+}
+@keyframes l5 {
+  0% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #000;
+  }
+  33% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #0002;
+  }
+  66% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #0002;
+  }
+  100% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #000;
+  }
+}
+body{
+  margin:0;
+  padding:0;
+  overflow-x: hidden;
+
+  height:100%;
+}
+.backdrop {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 100%; */
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  z-index: 1000;
+}
+
+

@@ -21,10 +21,10 @@ const chatLogApiGateWayEndpoint = baseURL + "chatlog";
 const region = "us-east-1";
 
 document.addEventListener("DOMContentLoaded", function () {
+  addPreChatBoxModal();
   fetchTeamsUserInfo().then(() => {
     addWelcomeScreen();
     addChatBoxModal();
-    addPreChatBoxModal();
   });
 
   connect.ChatSession.setGlobalConfig({
@@ -721,7 +721,7 @@ function fetchTeamsUserInfo() {
     }).then((context) => {
       console.log("Teams Context:", context);
       if (context.user.loginHint) {
-        console.log("User's Email: ", context.user.userPrincipalName);
+        console.log("User's Email: ", context.user.loginHint);
         // Wait until the DOM is fully available before manipulating it
         const emailField = document.getElementById("email");
         if (emailField) {

@@ -696,20 +696,46 @@ function addChatBoxModal() {
 //     });
 // }
 
-function fetchTeamsUserInfo() {
-    return microsoftTeams.app.initialize().then(() => {
-        console.log("Teams SDK Initialized");
+// function fetchTeamsUserInfo() {
+//     return microsoftTeams.app.initialize().then(() => {
+//         console.log("Teams SDK Initialized");
 
-        return microsoftTeams.app.getContext();
+//         return microsoftTeams.app.getContext();
+//     }).then((context) => {
+//         console.log("Teams Context:", context);
+//         if (context.user.loginHint) {
+//           console.log("User's Email: ", context.user.userPrincipalName);
+//           document.getElementById("email").value = context.user.loginHint;
+//         }
+//     }).catch(error => {
+//         console.error("Error fetching Teams user context:", error);
+//     });
+// }
+
+function fetchTeamsUserInfo() {
+  return new Promise((resolve, reject) => {
+    microsoftTeams.app.initialize().then(() => {
+      console.log("Teams SDK Initialized");
+
+      return microsoftTeams.app.getContext();
     }).then((context) => {
-        console.log("Teams Context:", context);
-        if (context.user.loginHint) {
-          console.log("User's Email: ", context.user.userPrincipalName);
-          document.getElementById("email").value = context.user.loginHint;
+      console.log("Teams Context:", context);
+      if (context.user.loginHint) {
+        console.log("User's Email: ", context.user.userPrincipalName);
+        // Wait until the DOM is fully available before manipulating it
+        const emailField = document.getElementById("email");
+        if (emailField) {
+          emailField.value = context.user.loginHint;
+        } else {
+          console.error("Email field not found");
         }
-    }).catch(error => {
-        console.error("Error fetching Teams user context:", error);
+      }
+      resolve();
+    }).catch((error) => {
+      console.error("Error fetching Teams user context:", error);
+      reject(error);
     });
+  });
 }
 
 function addPreChatBoxModal() {

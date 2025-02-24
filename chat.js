@@ -22,10 +22,12 @@ const region = "us-east-1";
 
 document.addEventListener("DOMContentLoaded", function () {
   addPreChatBoxModal();
-  fetchTeamsUserInfo().then(() => {
-    addWelcomeScreen();
-    addChatBoxModal();
-  });
+  addWelcomeScreen();
+  addChatBoxModal();
+  // fetchTeamsUserInfo().then(() => {
+  //   addWelcomeScreen();
+  //   addChatBoxModal();
+  // });
 
   connect.ChatSession.setGlobalConfig({
     region: region,
@@ -712,31 +714,31 @@ function addChatBoxModal() {
 //     });
 // }
 
-function fetchTeamsUserInfo() {
-  return new Promise((resolve, reject) => {
-    microsoftTeams.app.initialize().then(() => {
-      console.log("Teams SDK Initialized");
+// function fetchTeamsUserInfo() {
+//   return new Promise((resolve, reject) => {
+//     microsoftTeams.app.initialize().then(() => {
+//       console.log("Teams SDK Initialized");
 
-      return microsoftTeams.app.getContext();
-    }).then((context) => {
-      console.log("Teams Context:", context);
-      if (context.user.loginHint) {
-        console.log("User's Email: ", context.user.loginHint);
-        // Wait until the DOM is fully available before manipulating it
-        const emailField = document.getElementById("email");
-        if (emailField) {
-          emailField.value = context.user.loginHint;
-        } else {
-          console.error("Email field not found");
-        }
-      }
-      resolve();
-    }).catch((error) => {
-      console.error("Error fetching Teams user context:", error);
-      reject(error);
-    });
-  });
-}
+//       return microsoftTeams.app.getContext();
+//     }).then((context) => {
+//       console.log("Teams Context:", context);
+//       if (context.user.loginHint) {
+//         console.log("User's Email: ", context.user.loginHint);
+//         // Wait until the DOM is fully available before manipulating it
+//         const emailField = document.getElementById("email");
+//         if (emailField) {
+//           emailField.value = context.user.loginHint;
+//         } else {
+//           console.error("Email field not found");
+//         }
+//       }
+//       resolve();
+//     }).catch((error) => {
+//       console.error("Error fetching Teams user context:", error);
+//       reject(error);
+//     });
+//   });
+// }
 
 function addPreChatBoxModal() {
   document.body.innerHTML += `

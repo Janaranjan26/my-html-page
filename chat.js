@@ -704,7 +704,8 @@ function fetchTeamsUserInfo() {
     }).then((context) => {
         console.log("Teams Context:", context);
         if (context.user.loginHint) {
-        document.getElementById("email").value = context.user.loginHint;
+          console.log("User's Email: ", context.user.userPrincipalName);
+          document.getElementById("email").value = context.user.loginHint;
         }
     }).catch(error => {
         console.error("Error fetching Teams user context:", error);

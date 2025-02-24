@@ -665,6 +665,37 @@ function addChatBoxModal() {
   `;
 }
 
+// function fetchTeamsUserInfo() {
+//     return microsoftTeams.app.initialize().then(() => {
+//         console.log("Teams SDK Initialized");
+
+//         return microsoftTeams.app.getContext();
+//     }).then((context) => {
+//         console.log("Teams Context:", context);
+//         if (context.user) {
+//             const fullName = context.user.displayName || "";
+//             const [firstName, ...lastNameParts] = fullName.split(" ");
+//             const lastName = lastNameParts.join(" ");
+
+//             window.teamsUserFirstName = firstName || "";
+//             window.teamsUserLastName = lastName || "";
+
+//             console.log("User First Name:", window.teamsUserFirstName);
+//             console.log("User Last Name:", window.teamsUserLastName);
+
+//             // If modal is already loaded, update fields
+//             if (document.getElementById("clientsFirstName")) {
+//                 document.getElementById("clientsFirstName").value = window.teamsUserFirstName;
+//                 document.getElementById("clientsLastName").value = window.teamsUserLastName;
+//             }
+//         } else {
+//             console.warn("No user info available in context.");
+//         }
+//     }).catch(error => {
+//         console.error("Error fetching Teams user context:", error);
+//     });
+// }
+
 function fetchTeamsUserInfo() {
     return microsoftTeams.app.initialize().then(() => {
         console.log("Teams SDK Initialized");
@@ -672,24 +703,8 @@ function fetchTeamsUserInfo() {
         return microsoftTeams.app.getContext();
     }).then((context) => {
         console.log("Teams Context:", context);
-        if (context.user) {
-            const fullName = context.user.displayName || "";
-            const [firstName, ...lastNameParts] = fullName.split(" ");
-            const lastName = lastNameParts.join(" ");
-
-            window.teamsUserFirstName = firstName || "";
-            window.teamsUserLastName = lastName || "";
-
-            console.log("User First Name:", window.teamsUserFirstName);
-            console.log("User Last Name:", window.teamsUserLastName);
-
-            // If modal is already loaded, update fields
-            if (document.getElementById("clientsFirstName")) {
-                document.getElementById("clientsFirstName").value = window.teamsUserFirstName;
-                document.getElementById("clientsLastName").value = window.teamsUserLastName;
-            }
-        } else {
-            console.warn("No user info available in context.");
+        if (context.user && context.user.userPrincipalName) {
+        document.getElementById("email").value = context.user.userPrincipalName;
         }
     }).catch(error => {
         console.error("Error fetching Teams user context:", error);
@@ -756,10 +771,10 @@ function addPreChatBoxModal() {
      
     </div>
   `;
-  setTimeout(() => {
-    if (document.getElementById("clientsFirstName")) {
-        document.getElementById("clientsFirstName").value = window.teamsUserFirstName || "";
-        document.getElementById("clientsLastName").value = window.teamsUserLastName || "";
-    }
-}, 2000);
+//   setTimeout(() => {
+//     if (document.getElementById("clientsFirstName")) {
+//         document.getElementById("clientsFirstName").value = window.teamsUserFirstName || "";
+//         document.getElementById("clientsLastName").value = window.teamsUserLastName || "";
+//     }
+// }, 2000);
 }

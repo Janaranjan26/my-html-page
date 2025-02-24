@@ -739,7 +739,6 @@ function fetchTeamsUserInfo() {
 }
 
 function addPreChatBoxModal() {
-  fetchTeamsUserInfo();
   document.body.innerHTML += `
   <div id="preChatModal" class="chat-modal-container">
       <div class="modal-content">

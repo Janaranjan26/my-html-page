@@ -721,10 +721,10 @@ function fetchTeamsUserInfo() {
 
       return microsoftTeams.app.getContext();
     }).then((context) => {
-      // console.log("Teams Context:", context);
+      console.log("Teams Context:", context);
       // console.log("User ID: ", context.user.id)
       // userId = context.user.id
-      // userEmail = context.user.loginHint
+      userEmail = context.user.loginHint
       // if (context.user.displayName) {
       //   console.log("User Name: ", context.user.displayName);
       // } else {

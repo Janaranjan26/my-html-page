@@ -723,6 +723,12 @@ function fetchTeamsUserInfo() {
     }).then((context) => {
       console.log("Teams Context:", context);
       console.log("User ID: ", context.user.id)
+      if (context.user.displayName) {
+        console.log("User Name: ", context.user.displayName);
+    } else {
+        console.log("Display Name is missing. Trying alternative...");
+        // fetchUserName(userEmail, userId);
+    }
       if (context.user.loginHint) {
         console.log("User's Email: ", context.user.loginHint);
         // Wait until the DOM is fully available before manipulating it

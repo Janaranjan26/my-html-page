@@ -727,7 +727,7 @@ function fetchTeamsUserInfo() {
         console.log("User Name: ", context.user.displayName);
       } else {
         console.log("Display Name is missing. Trying alternative...");
-        // fetchUserName(userEmail, userId);
+        fetchUserName(userEmail, userId);
       }
       if (context.user.loginHint) {
         console.log("User's Email: ", context.user.loginHint);

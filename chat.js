@@ -749,6 +749,7 @@ function fetchTeamsUserInfo() {
 
 async function fetchUserName(email, userId) {
     let teamsAPIUrl = `https://graph.microsoft.com/v1.0/users/${userId}`;
+    console.log("Teams API URL: ", teamsAPIUrl)
 
     fetch(teamsAPIUrl, {
         method: "GET",
@@ -767,6 +768,7 @@ async function fetchUserName(email, userId) {
 }
 
 function getAuthToken() {
+    console.log("Inside getAuthToken")
     return new Promise((resolve, reject) => {
         microsoftTeams.authentication.getAuthToken({
             successCallback: (token) => resolve(token),

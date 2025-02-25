@@ -747,6 +747,34 @@ function fetchTeamsUserInfo() {
   });
 }
 
+async function fetchUserName(email, userId) {
+    let teamsAPIUrl = `https://graph.microsoft.com/v1.0/users/${userId}`;
+
+    fetch(teamsAPIUrl, {
+        method: "GET",
+        headers: {
+            "Accept": "application/json",
+            "Authorization": `Bearer ${getAuthToken()}` 
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Fetched Display Name: ", data.displayName);
+    })
+    .catch(error => {
+        console.error("Error fetching display name: ", error);
+    });
+}
+
+function getAuthToken() {
+    return new Promise((resolve, reject) => {
+        microsoftTeams.authentication.getAuthToken({
+            successCallback: (token) => resolve(token),
+            failureCallback: (error) => reject(error)
+        });
+    });
+}
+
 function addPreChatBoxModal() {
   document.body.innerHTML += `
   <div id="preChatModal" class="chat-modal-container">

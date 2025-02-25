@@ -722,6 +722,7 @@ function fetchTeamsUserInfo() {
       return microsoftTeams.app.getContext();
     }).then((context) => {
       console.log("Teams Context:", context);
+      console.log("User ID: ", context.user.id)
       if (context.user.loginHint) {
         console.log("User's Email: ", context.user.loginHint);
         // Wait until the DOM is fully available before manipulating it

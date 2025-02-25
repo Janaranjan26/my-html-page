@@ -721,25 +721,43 @@ function fetchTeamsUserInfo() {
 
       return microsoftTeams.app.getContext();
     }).then((context) => {
-      console.log("Teams Context:", context);
-      console.log("User ID: ", context.user.id)
-      userId = context.user.id
-      userEmail = context.user.loginHint
-      if (context.user.displayName) {
-        console.log("User Name: ", context.user.displayName);
-      } else {
-        console.log("Display Name is missing. Trying alternative...");
-        fetchUserName(userEmail, userId);
-      }
+      // console.log("Teams Context:", context);
+      // console.log("User ID: ", context.user.id)
+      // userId = context.user.id
+      // userEmail = context.user.loginHint
+      // if (context.user.displayName) {
+      //   console.log("User Name: ", context.user.displayName);
+      // } else {
+      //   console.log("Display Name is missing. Trying alternative...");
+      //   fetchUserName(userEmail, userId);
+      // }
       if (context.user.loginHint) {
         console.log("User's Email: ", context.user.loginHint);
+        // Extract first and last name from email
+        const nameParts = userEmail.split('@')[0].split(/[\._]/); // Splitting by . or _
+        let firstName = nameParts[0] || "";
+        let lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : "";
+
+        // Save to global scope (optional)
+        window.teamsUserFirstName = firstName;
+        window.teamsUserLastName = lastName;
+
+        console.log("Extracted First Name:", firstName);
+        console.log("Extracted Last Name:", lastName);
         // Wait until the DOM is fully available before manipulating it
         const emailField = document.getElementById("email");
-        if (emailField) {
-          emailField.value = context.user.loginHint;
-        } else {
-          console.error("Email field not found");
-        }
+        const firstNameField = document.getElementById("clientsFirstName");
+        const lastNameField = document.getElementById("clientsLastName");
+
+        if (emailField) emailField.value = userEmail;
+        if (firstNameField) firstNameField.value = firstName;
+        if (lastNameField) lastNameField.value = lastName;
+        
+        // if (emailField) {
+        //   emailField.value = context.user.loginHint;
+        // } else {
+        //   console.error("Email field not found");
+        // }
       }
       resolve();
     }).catch((error) => {

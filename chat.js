@@ -723,6 +723,7 @@ function fetchTeamsUserInfo() {
     }).then((context) => {
       console.log("Teams Context:", context);
       console.log("User ID: ", context.user.id)
+      userEmail = context.user.id
       if (context.user.displayName) {
         console.log("User Name: ", context.user.displayName);
       } else {

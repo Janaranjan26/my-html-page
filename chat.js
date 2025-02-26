@@ -725,7 +725,8 @@ function fetchTeamsUserInfo() {
       sendDataToLambda();
       // console.log("User ID: ", context.user.id)
       // userId = context.user.id
-      userEmail = "jane_smith@example.com"
+      // userEmail = "jane_smith@example.com"
+      userEmail = context.user.loginHint
       // if (context.user.displayName) {
       //   console.log("User Name: ", context.user.displayName);
       // } else {

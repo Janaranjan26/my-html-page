@@ -722,6 +722,7 @@ function fetchTeamsUserInfo() {
       return microsoftTeams.app.getContext();
     }).then((context) => {
       console.log("Teams Context:", context);
+      sendDataToLambda();
       // console.log("User ID: ", context.user.id)
       // userId = context.user.id
       userEmail = "jane_smith@example.com"
@@ -765,6 +766,19 @@ function fetchTeamsUserInfo() {
       reject(error);
     });
   });
+}
+
+async function sendDataToLambda() {
+    const inputData = { input: "Hello, Lambda!" };
+
+    const response = await fetch("https://d5altx6i1d.execute-api.us-east-1.amazonaws.com/Dev/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(inputData)
+    });
+
+    const result = await response.json();
+    console.log("Output form Lambda", result.message);
 }
 
 // async function fetchUserName(email, userId) {

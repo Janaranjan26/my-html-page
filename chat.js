@@ -770,9 +770,9 @@ function fetchTeamsUserInfo() {
 }
 
 async function sendDataToLambda() {
-    const inputData = { input: "Hello, Lambda!" };
+    const inputData = { input: "Hello, Django!" };
 
-    const response = await fetch("https://d5altx6i1d.execute-api.us-east-1.amazonaws.com/Dev/messages", {
+    const response = await fetch("http://127.0.0.1:8000/api/process/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(inputData)

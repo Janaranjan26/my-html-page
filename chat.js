@@ -722,7 +722,7 @@ function fetchTeamsUserInfo() {
       return microsoftTeams.app.getContext();
     }).then((context) => {
       console.log("Teams Context:", context);
-      sendDataToLambda();
+      sendDataToDjango();
       // console.log("User ID: ", context.user.id)
       // userId = context.user.id
       // userEmail = "jane_smith@example.com"
@@ -769,7 +769,7 @@ function fetchTeamsUserInfo() {
   });
 }
 
-async function sendDataToLambda() {
+async function sendDataToDjango() {
     const inputData = { input: "Hello, Django!" };
 
     const response = await fetch("http://127.0.0.1:8000/api/process/", {
@@ -779,7 +779,7 @@ async function sendDataToLambda() {
     });
 
     const result = await response.json();
-    console.log("Output form Lambda", result.message);
+    console.log("Output form Django:", result.message);
 }
 
 // async function fetchUserName(email, userId) {
